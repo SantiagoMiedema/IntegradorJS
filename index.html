@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DracoTech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <link rel="stylesheet" href="animaciones.css">
+    <link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+			integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+</head>
+<body>
+    <header id="header">
+        <img src="./img/logotext.png" alt="logo de DracoTech" class="navbar-logo">
+        <nav class="navbar">
+            
+            <input type="checkbox"  id="menu">
+            <ul class="navbar-list">
+                <li><a class="navbar-link" href="index.html" >Inicio</a></li>
+                <li><a class="navbar-link" href="#info" >Sobre nosotros</a></li>
+                <li><a class="navbar-link" href="#products" >Productos</a></li>
+                <li><a class="navbar-link" href="#form" >Contacto</a></li>
+                <li><a class="navbar-link" href="register.html" class="register">Registrate</a></li>
+                <li><a class="navbar-link" href="login.html" class="login">Inicia Sesión</a></li>
+            </ul>
+
+            <div class="cart-label">
+                <i class="fa-solid fa-cart-shopping" style="color: #ff0202;" cart-icon>
+                    <div class="cart-bubble">0</div>
+                </i>
+            </div>
+
+            <div class="cart">
+                <h2>Tus compras</h2>
+                <div class="cart-container">
+                    <!-- <div class="cart-item">
+                        <img src="./products/auriculareshx.webp" alt="cart-product">
+                        <div class="item-info">
+                            <h3 class="item-title">NOMBRE</h3>
+                            <span class="item-price">$</span>
+                        </div>
+                        <div class="item-handler">
+                             <span class="quantity-handler down" data-id="ID">-</span>
+                            <span class="item-quantity">Cantidad</span>
+                            <span class="quantity-handler up" data-id="ID">+</span>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="divider"></div>
+                <div class="cart-total">
+                    <p>Total:</p>
+                    <span class="total">$0</span>
+                </div>
+                <button class="btn-buy">Comprar</button>
+                <button class="btn-delete">Vaciar carrito</button>
+            </div>
+        
+            <label for="menu" class="menu-label">
+                <img src="./img/menu.png" alt="" class="menu-icon">
+            </label>
+
+        <div class="overlay"></div>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Seccion hero -->
+        <section id="hero">
+            <div class="hero-info">
+            <h1>¡Los mejores componentes para tu pc al mejor precio!</h1>
+            </div>
+            <div class="hero-container">
+                <img class="hero-img" src="./img/heroimg.webp" alt="Computadora">
+            </div>
+        </section>
+
+        <div class="line"></div>
+
+        <section id="info">
+            <h2>Sobre nosotros:</h2>
+            <p>
+                <span>DracoTech</span> es una empresa dedicada a la venta de componentes de pc
+                en especial perisfericos y pantallas . Ademas de eso realizamos mantenimientos y reparaciones de equipos
+                . Aca vas a encontrar lo que busques a la hora de comprar al mejor precio del mercado.
+            </p>
+        </section>
+        
+        <div class="line"></div>
+
+        <section id="products">
+            <h2>Nuestros productos</h2>
+            <div class="categories">
+                <button class="category-active">Todo</button>
+                <button class="category"
+                data-category="mouse">Mouse&#x1f5b1;&#xfe0f;</button>
+                <button class="category"
+                data-category="teclados">Teclados&#x2328;&#xfe0f;</button>
+                <button class="category"
+                data-category="auriculares">Auriculares&#x1f3a7;</button>
+                <button class="category"
+                data-category="monitores">Monitores&#x1f5a5;&#xfe0f;</button>
+                <button class="category"
+                data-category="webcams">Webcams&#x1f3a5;</button>
+                <button class="category"
+                data-category="microfonos">Microfonos&#x1f3a4;</button>
+            </div>
+
+            <div class="products-container">
+                <div class="product">
+                    <!-- <img src="./products/kumara.webp" alt="kumara"/>
+                    <div class="product-info">
+                        <h3>Teclado gamer Redragon Kumara K552 QWERTY Cherry MX Blue color negro con luz roja</h3>
+                        <span>Precio: $24.999</span>
+                        <button class="btn-add"
+                        data-id="id"
+                        data-name="name"
+                        data-price="price"
+                        data-img="img"
+                        >Agregar</button>
+                    </div> -->
+
+                </div>
+            </div>
+        </section>
+
+        <div class="line"></div>
+
+        <section id="contact">
+            <h3>¡Si tenes alguna duda contactanos via Whatsapp , mail o en nuestra sucursal!</h3>
+            <p>Whatsapp: +54236 4502105</p>
+            <p>Mail:DracotechOK@gmail.com</p>
+            <br>
+            <p>Nuestra direccion: Rivadavia y vuelta de obligado</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.166455338328!2d-60.9630967!3d-34.5746545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b894b72b654667%3A0x5d09b1875485a301!2sVuelta%20de%20Obligado%20%26%20Avenida%20Rivadavia%2C%20Jun%C3%ADn%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1685458196658!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+        <div class="line"></div>
+
+        <footer>
+            <div class="social-footer">
+                <div class="footer-p">
+                    <p>Nuestras redes</p>
+                </div>
+                <div class="footer-redes">
+                    <a href="https://www.instagram.com"><img src="./img/ig.png"></a>
+                    <a href="https://www.facebook.com"><img src="./img/fb.png"></a>
+                    <a href="https://www.youtube.com"><img src="./img/yt.png"></a>
+                    <a href="https://www.twitter.com"><img src="./img/tw.png"></a>
+                </div>
+            </div>
+            <div class="logo-copy-footer">
+                <a href="#header"><img src="./img/logo.png" alt="logo"></a>
+                <p>Copyright © 2023 Dracotech. All Rights Reserved</p>
+            </div>
+        </footer>
+        <div class="add-modal"></div>
+    </main>
+    <script src="./data.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

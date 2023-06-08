@@ -1,0 +1,51 @@
+@media (max-width: 992px){
+   
+
+      .navbar-list{
+        display: none;
+      }
+
+      
+
+      .menu-label{
+        display: flex;
+        cursor: pointer;
+      }
+
+      .navbar {
+        justify-content: end;
+        gap: 30px;
+      }
+
+      .menu-label{
+        padding-right: 2rem;
+      }
+
+      .navbar-list{
+        position: absolute;
+        top: 100px;
+        left: 24%;
+        right: 5%;
+        width: 50%;
+        flex-direction: column;
+        background-color: #0f0e17;
+        border: 2px solid orangered;
+        border-top: 0;
+        border-radius: 0px 0px 15px 15px;
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+        z-index: 2;
+    }
+
+    .open-menu{
+      display: flex;
+    }
+
+    #menu:checked+ 
+.navbar-list{
+    display: flex;
+}
+
+
+
+}

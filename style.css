@@ -1,0 +1,559 @@
+@import url('https://fonts.googleapis.com/css2?family=Oldenburg&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Armata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,100&display=swap');
+
+*{
+    margin: 0 ; 
+    padding: 0 ;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+header{
+    background: black;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    padding: 20px 0px 20px 10px;
+    position: fixed;
+    z-index: 2;
+
+}
+
+.navbar-logo {
+    height: 90%;
+    padding-left: 2rem;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.navbar-list{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-left: 2rem;
+    
+}
+
+.navbar-list a{
+    color: #C8412C;
+    font-size: 14px;
+    font-weight: 800;
+    font-family: "Armata" , sans-serif;
+    transition: 0.5s;
+}
+
+
+.menu-label {
+    display: none;
+}
+#menu{
+    display: none;
+}
+
+.menu-icon {
+  width: 35px;
+  height: 35px;
+}
+
+  .cart-label{
+    cursor: pointer;
+    position: relative;
+    padding-top: 10px;
+  }
+  
+  .cart-bubble {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    text-align: center;
+    background: red;
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1px;
+    border-radius: 50%;
+  }
+
+  .cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cart h2{
+    color: #C8412C;
+    font-family: oldenburg;
+    font-weight: 200;
+  }
+
+  
+
+  .cart {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    padding: 50px 30px;
+    background: #1F1A19;
+    border-left: 1px solid var(--nav-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: calc(100vh - 65px);
+    overflow-y: scroll;
+    z-index: 2;
+    min-width: 375px;
+    display: none;
+  }
+
+
+
+  .cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cart::-webkit-scrollbar {
+        display: none;
+  }
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: orangered;
+    padding: 20px;
+    border: 2px solid  black;
+    border-radius: 10px;
+  }
+
+  .cart-item img {
+    height: 40px;
+    width: 60px;
+  }
+
+  .item-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 110px;
+  }
+
+  .item-title {
+    color: black;
+    font-weight: 800;
+    font-size: 14px;
+    font-family: oldenburg , sans-serif;
+  }
+
+  .item-price {
+    background: black;
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    font-size: 16px;
+    font-weight: 800;
+  }
+  
+  .item-handler {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .quantity-handler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 5px;
+    color: black;
+    font-weight: 400;
+  }
+  
+  .item-quantity {
+    color: black;
+    font-weight: 600;
+  }
+  
+  .up {
+    border: 1px solid black;
+    background-color: red;
+    font-weight: 800;
+  }
+  
+  .down {
+    border: 1px solid black;
+    background-color: red;
+  }
+  
+  .divider {
+    margin-top: 20px;
+    border: 0.5px solid orangered;
+    width: 100%;
+  }
+  
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+  }
+  
+  .cart-total p {
+    color: red;
+    font-weight: 700;
+    font-family: oldenburg , sans-serif;
+  }
+  
+  .cart-total span {
+    color: red;
+    
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  .open-cart {
+    display: flex;
+    
+  }
+  
+  .empty-msg {
+    color: gray;
+    font-size: 14px;
+  }
+
+  .btn-buy,
+  .btn-delete {
+    cursor: pointer;
+  padding: 10px 35px;
+  color: orangered;
+  border-radius: 10px;
+  background-color: black;
+  border: orangered 1px solid;
+  transition: 0.3s all ease-out;
+  }
+ 
+
+main{
+    background-color: #141420;
+    padding-top: 120px;
+}
+
+#hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+  margin: 0 auto;
+}
+
+#hero h1{
+    text-align: center;
+    color: #C8412C;
+    font-family: "armata" , sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    padding: 2rem 0 1rem 0rem;
+    text-shadow: 1px  0px 0px black,
+    0px  1px 0px black,
+   -1px  0px 0px black,
+    0px -1px 0px black;
+}
+
+.hero-container{
+    width: 60%;
+    padding: 2rem 2rem 2rem 2rem ;
+    
+}
+
+.hero-img{
+    width: 100%;
+    border: #C8412C 1.5px solid;
+    border-radius: 0.4rem;
+}
+
+.line {
+    border-top: 1px solid #C8412C;
+    height: 2px;
+    padding: 0;
+    margin: 3rem auto 3rem auto;
+  }
+
+  #info{
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+     margin: 0 auto;
+     scroll-margin-top: 100px;
+     gap: 1.5rem;
+  }
+
+  #info h2 {
+    font-size: 24px;
+    color: #C8412C;
+    text-align: center;
+    font-family: "armata" , sans-serif;
+    text-shadow: 1px  0px 0px black,
+    0px  1px 0px black,
+   -1px  0px 0px black,
+    0px -1px 0px black;
+  }
+
+  #info p{
+    font-size: 16px;
+    color: #FF5733;
+    font-family: "armata" , sans-serif;
+  }
+
+  #info p span{
+    color: #C8412C;
+    font-size: 22px;
+    text-shadow: 1px  0px 0px black,
+    0px  1px 0px black,
+   -1px  0px 0px black,
+    0px -1px 0px black;
+  }
+
+  #products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+#products h2{
+    color: #C8412C;
+    font-family: "armata" , sans-serif;
+    font-size: 24px;
+    text-shadow: 1px  0px 0px black,
+    0px  1px 0px black,
+   -1px  0px 0px black,
+    0px -1px 0px black;
+
+}
+
+.category-active{
+    color: black;
+    font-family: "armata" ,sans-serif;
+    background: #C8412C;
+    padding: 5px;
+    display: inline-block;
+    position: relative;
+    width: 7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center;
+    border: black 2px solid;
+    margin: 0 0 1rem 1rem;
+    
+ }
+
+ .categories{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+ }
+
+.category {
+    color: black;
+    font-family: "armata" ,sans-serif;
+    background: orangered;
+    padding: 5px;
+    display: inline-block;
+    position: relative;
+    width: 7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center;
+    border: black 2px solid;
+    margin: 0 0 1rem 1rem;
+ }
+
+ .product{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    width: 300px;
+    height: auto;
+    background: black;
+    border: #C8412C 2px solid;
+    gap: 1rem;
+ }
+
+ .product img{
+    width: 300px;
+    height: 200px;
+    border: #C8412C 2px solid;
+ }
+
+ .hidden{
+    visibility: hidden;
+ }
+
+ .disabled {
+  background-color: var(--text-gray);
+  color: white;
+  cursor: not-allowed;
+  border: none;
+}
+.disabled:hover {
+  background-color: var(--text-gray);
+  color: white;
+  cursor: not-allowed;
+  border: none;
+}
+
+ .products-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    gap: 2rem;
+ }
+
+ .product-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    font-family: "armata" ,sans-serif;
+    margin-bottom: 1rem;
+    width: 300px;
+    color: #C8412C;
+ }
+
+ .product-info span{
+    color: red;
+ }
+
+ .product-info h3 {
+    font-size: 14px;
+    margin: 0 1rem 0 1rem;
+ }
+
+ .btn-add {
+    color: black;
+    font-family: "armata" ,sans-serif;
+    background: #C8412C;
+    padding: 5px;
+    display: inline-block;
+    position: relative;
+    width: 7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center;
+    border: black 2px solid;
+    
+ }
+
+#contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1200px;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+#contact h3{
+    color: #C8412C;
+    font-size: 20px;
+    font-family: "armata" , sans-serif;
+}
+
+#contact p{
+    color: #C8412C;
+    font-size: 16px;
+    font-family: "armata" , sans-serif;
+}
+
+footer{
+    background: black;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#C8412C ;
+}
+
+.social-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    gap: 1rem;
+    text-align: center;
+}
+
+.footer-redes{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-redes img{
+    width: 50px;
+    height: 50px;
+}
+
+.logo-copy-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-copy-footer img{
+    width: 50px;
+    height: 50px;
+}
+
+.add-modal {
+  padding: 15px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: green;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transition: all 0.5s ease-out;
+  transform: translateY(200%);
+}
+
+.active-modal {
+  transform: translateY(0);
+  transition: all 0.5s ease-in;
+}
+
