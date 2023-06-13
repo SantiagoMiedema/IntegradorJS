@@ -7,8 +7,8 @@ const menuBtn = document.querySelector(".menu-label");
 const barsMenu = document.querySelector(".navbar-list");
 const overlay = document.querySelector(".overlay");
 const cartProducts = document.querySelector(".cart-container");
-const total = document.querySelector("total");
-const succesModal = document.querySelector("add-modal");
+const total = document.querySelector(".total");
+const succesModal = document.querySelector(".add-modal");
 const buyBtn = document.querySelector(".btn-buy");
 const deleteBtn = document.querySelector(".btn-delete");
 const cartBubble = document.querySelector(".cart-bubble");
@@ -177,10 +177,10 @@ const createProductData = (product) => {
 };
 
 const isExistingCartProduct = (productId) => {
-    return cart.find((item) => {
-        return item.id === product.id
-    })
-} ;
+	return cart.find((item) => {
+		return item.id === productId;
+	});
+};
 
 const addUnitToProduct = (product) => {
     cart = cart.map ((cartProduct) => {
@@ -209,11 +209,11 @@ const createCartProduct = (product) => {
 };
 
 const disableBtn = (btn) => {
-    if(!cart.legth) {
-        btn.classList.add("disabled");
-    } else {
-        btn.classList.remove("disabled");
-    }
+	if (!cart.length) {
+		btn.classList.add("disabled");
+	} else {
+		btn.classList.remove("disabled");
+	}
 };
 
 const renderCartBubble = () => {
@@ -249,6 +249,69 @@ const addProduct = (e) => {
 
 };
 
+const removeProductFromCart = (existingProduct) => {
+    cart = cart.filter((product) => {
+        return product.id !== existingProduct.id
+    });
+    updateCartState();
+};
+
+const substractProductUnit = (existingProduct) => {
+    cart = cart.map((product) => {
+        return product.id === existingProduct.id
+        ? {...product, quantity: Number(product.quantity) -1}
+        : product;
+    });
+};
+
+const handleMinusBtnEvent = (id) => {
+    const existingCartProduct = cart.find((item) => item.id === id);
+
+    if(existingCartProduct.quantity === 1){
+        if(window.confirm("¿Estas seguro de eliminar el producto del carrito?")){
+            removeProductFromCart(existingCartProduct);
+        }
+        return;
+    }
+    substractProductUnit(existingCartProduct);
+};
+
+handlePlusBtnEvent = (id) => {
+    const existingCartProduct = cart.find((item) => item.id === id);
+    addUnitToProduct(existingCartProduct);
+};
+
+handleQuantity = (e) => {
+    if(e.target.classList.contains("down")){
+        handleMinusBtnEvent(e.target.dataset.id);
+    } else if (e.target.classList.contains("up")){
+        handlePlusBtnEvent(e.target.dataset.id);
+    }
+    updateCartState();
+};
+
+const resetCartItem = () => {
+    cart = [];
+    updateCartState();
+};
+
+const completeCartAction = (confirmMsg, succesMsg) => {
+    if (!cart.length) return;
+
+    if(window.confirm(confirmMsg)){
+        resetCartItem();
+        alert(succesMsg);
+    }
+};
+
+const completeBuy = () => {
+    completeCartAction("¿Desea completar su compra?" , "¡Gracias por su compra!");
+};
+
+const deleteCart = () => {
+    completeCartAction("¿Desea vaciar el carrito?" , "No hay productos en el carrito")
+};
+
 const init = () => {
       renderProducts(productsData);
       categoriesContainer.addEventListener("click" , applyFilter);
@@ -260,8 +323,12 @@ const init = () => {
       document.addEventListener("DOMContenLoaded" , renderCart);
       document.addEventListener("DOMContenLoaded" , showCartTotal);
       productsContainer.addEventListener("click", addProduct);
+      cartProducts.addEventListener("click", handleQuantity);
+      buyBtn.addEventListener("click", completeBuy);
+      deleteBtn.addEventListener("click" , deleteCart);
       disableBtn(buyBtn);
       disableBtn(deleteBtn);
+      renderCartBubble();
 };
 
 
