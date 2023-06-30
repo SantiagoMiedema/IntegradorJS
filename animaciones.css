@@ -18,7 +18,112 @@
     display: block;
 }
 
+.cart-icon {
+    transition: all 0.2s ease-out;
+  }
+
 .open-cart{
     transform: translate(0%);
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.category-active:hover{
+    background-color: black;
+    color: orangered;
+    border: 2px solid orangered;
+    transition: 0.5s;
+    transform: scale(1.10);
+}
+
+.category:hover{
+    background-color: black;
+    color: orangered;
+    border: 2px solid orangered;
+    transition: 0.5s;
+    transform: scale(1.10);
+}
+
+.btn-add:hover{
+    background-color: black;
+    color: red;
+    border: 2px solid orangered;
+    transition: 0.5s;
+    transform: scale(1.10);
+}
+
+  .btn-buy:hover{
+    transform: scale(1.09);
+    color: red;
+    background: black;
+    border: red 1px solid;
+  }
+
+  .btn-delete:hover{
+    transform: scale(1.09);
+    color: red;
+    background: black;
+    border: red 1px solid;
+  }
+
+@media (min-width: 992px){
+
+.navbar-link:hover{
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+.navbar-link{
+    &::before,
+    &::after{
+        height: 0.2em;
+        bottom: -3px;
+    }
+
+    &::before{
+        width: 0;
+        background-color: red;
+    }
+
+    &::after{
+        width: 92%;
+        border: 1px solid red;
+        border-top: 0;
+        opacity: 0;
+    }
+
+    &:hover{
+        color: red;
+
+        &::before{
+            width: 0;
+            animation: width 300ms ease forwards;
+        }
+
+        &::after{
+            opacity: 1;
+        }
+    }
+}
+
+@keyframes width {
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: 92%;
+    }
+
+}
+
+
+.product:hover{
+    transition: 0.5s;
+    transform: scale(1.09);
+}
+
 }

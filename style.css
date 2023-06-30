@@ -13,6 +13,7 @@
 
 header{
     background: black;
+    border: 1px solid orangered;
     box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
     width: 100%;
     display: flex;
@@ -31,7 +32,7 @@ header{
 
 .navbar{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     width: 100%;
 }
 
@@ -43,12 +44,31 @@ header{
     
 }
 
-.navbar-list a{
+.navbar-link {
+    position: relative;
+    display: block;
+    text-decoration: none;
     color: #C8412C;
+    width: fit-content;
     font-size: 14px;
     font-weight: 800;
     font-family: "Armata" , sans-serif;
-    transition: 0.5s;
+    transition: all 450ms ease;
+    padding-right: 0.3rem;
+    z-index: 0;
+    padding-bottom: 3px;
+
+    &::after,
+    &::before{
+      content: "";
+      display: block;
+      position: absolute;
+      transition: width 540ms, opacity 300ms ease;
+    }
+}
+
+ul {
+  padding-right: 3rem;
 }
 
 
@@ -68,12 +88,13 @@ header{
     cursor: pointer;
     position: relative;
     padding-top: 10px;
+    padding-right: 2rem;
   }
   
   .cart-bubble {
     position: absolute;
     top: -8px;
-    right: -12px;
+    right: 20px;
     text-align: center;
     background: red;
     color: white;
@@ -104,19 +125,20 @@ header{
 
   .cart {
     position: absolute;
-    top: 65px;
-    right: 0;
+    top: 98px;
+    right: 0px;
     padding: 50px 30px;
-    background: #1F1A19;
-    border-left: 1px solid var(--nav-bg);
-    display: flex;
+    background-image: url(./img/background.webp);
+    border: 1px solid orangered;
     flex-direction: column;
     gap: 30px;
     height: calc(100vh - 65px);
     overflow-y: scroll;
     z-index: 2;
-    min-width: 375px;
+    min-width: 300px;
     display: none;
+    transform: translate(200%);
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
   }
 
 
@@ -135,9 +157,9 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
     background-color: orangered;
-    padding: 20px;
+    padding: 5px;
     border: 2px solid  black;
     border-radius: 10px;
   }
@@ -145,6 +167,12 @@ header{
   .cart-item img {
     height: 40px;
     width: 60px;
+    border-radius: 10%;
+  }
+
+  .open-cart {
+    transform: translate(0%);
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
   }
 
   .item-info {
@@ -173,7 +201,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
   }
   
   .quantity-handler {
@@ -212,7 +240,7 @@ header{
   .cart-total {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     width: 100%;
   }
   
@@ -232,6 +260,8 @@ header{
   .open-cart {
     display: flex;
     max-width: 400px;
+    transform: translate(0%);
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
     
   }
   
@@ -243,20 +273,24 @@ header{
   .btn-buy,
   .btn-delete {
     cursor: pointer;
-  padding: 10px 35px;
-  color: orangered;
+  padding: 10px 20px 10px 20px;
+  color: black;
   border-radius: 10px;
-  background-color: black;
-  border: orangered 1px solid;
+  background-color: orangered;
+  border: black 1px solid;
   transition: 0.3s all ease-out;
+  font-weight: 800;
+  transition: 0.5s;
+
   }
 
  
  
 
 main{
-    background-color: #141420;
+    background-image: url(./img/background.webp);
     padding-top: 120px;
+    
 }
 
 #hero{
@@ -265,16 +299,17 @@ main{
     align-items: center;
     max-width: 1200px;
   margin: 0 auto;
+  scroll-margin-top: 150px;
 }
 
 #hero h1{
     text-align: center;
-    color: #C8412C;
+    color: #D1CBCA;
     font-family: "armata" , sans-serif;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 800;
     padding: 2rem 0 1rem 0rem;
-    text-shadow: 1px  0px 0px black,
+    text-shadow: 2px  0px 0px black,
     0px  1px 0px black,
    -1px  0px 0px black,
     0px -1px 0px black;
@@ -282,7 +317,7 @@ main{
 
 .hero-container{
     width: 60%;
-    padding: 2rem 2rem 2rem 2rem ;
+    padding: 1rem 2rem 1rem 1rem ;
     
 }
 
@@ -304,13 +339,13 @@ main{
     flex-direction: column;
     max-width: 1200px;
      margin: 0 auto;
-     scroll-margin-top: 100px;
+     scroll-margin-top: 150px;
      gap: 1.5rem;
   }
 
   #info h2 {
     font-size: 24px;
-    color: #C8412C;
+    color: #D1CBCA;
     text-align: center;
     font-family: "armata" , sans-serif;
     text-shadow: 1px  0px 0px black,
@@ -323,6 +358,8 @@ main{
     font-size: 16px;
     color: #FF5733;
     font-family: "armata" , sans-serif;
+    padding: 0 3rem 0 3rem;
+    text-align: center;
   }
 
   #info p span{
@@ -339,13 +376,14 @@ main{
     justify-content: center;
     align-items: center;
     max-width: 1200px;
+    scroll-margin-top: 150px;
   margin: 0 auto;
   flex-direction: column;
   gap: 3rem;
 }
 
 #products h2{
-    color: #C8412C;
+    color: #D1CBCA;
     font-family: "armata" , sans-serif;
     font-size: 24px;
     text-shadow: 1px  0px 0px black,
@@ -356,9 +394,9 @@ main{
 }
 
 .category-active{
-    color: black;
+    color: orangered;
     font-family: "armata" ,sans-serif;
-    background: #C8412C;
+    background: black;
     padding: 5px;
     display: inline-block;
     position: relative;
@@ -366,10 +404,11 @@ main{
     border-radius: 6px;
     cursor: pointer;
     font-size: 12px;
-    font-weight: 800;
+    font-weight: 1000;
     text-align: center;
     border: black 2px solid;
     margin: 0 0 1rem 1rem;
+    transition: 0.5s;
     
  }
 
@@ -391,10 +430,11 @@ main{
     border-radius: 6px;
     cursor: pointer;
     font-size: 12px;
-    font-weight: 800;
+    font-weight: 1000;
     text-align: center;
     border: black 2px solid;
     margin: 0 0 1rem 1rem;
+    transition: 0.5s;
  }
 
  .product{
@@ -407,12 +447,15 @@ main{
     background: black;
     border: #C8412C 2px solid;
     gap: 1rem;
+    border-radius: 10px;
+    transition: 0.5s;
  }
 
  .product img{
     width: 300px;
     height: 200px;
     border: #C8412C 2px solid;
+    border-radius: 10px 10px 0 0;
  }
 
  .hidden{
@@ -450,7 +493,7 @@ main{
     font-family: "armata" ,sans-serif;
     margin-bottom: 1rem;
     width: 300px;
-    color: #C8412C;
+    color: #D1CBCA;
  }
 
  .product-info span{
@@ -476,7 +519,7 @@ main{
     font-weight: 800;
     text-align: center;
     border: black 2px solid;
-    
+    transition: 0.5s;
  }
 
 #contact{
@@ -487,22 +530,29 @@ main{
     max-width: 1200px;
   margin: 0 auto;
   gap: 1rem;
+  scroll-margin-top: 150px;
 }
 
 #contact h3{
     color: #C8412C;
     font-size: 20px;
     font-family: "armata" , sans-serif;
+    padding: 0 5rem 0 5rem;
+    text-align: center;
 }
 
 #contact p{
     color: #C8412C;
     font-size: 16px;
     font-family: "armata" , sans-serif;
+    text-align: center;
+    padding: 0 2rem 0 2rem;
 }
+
 
 footer{
     background: black;
+    border: 1px solid orangered;
     height: 120px;
     display: flex;
     justify-content: center;
@@ -559,5 +609,98 @@ footer{
 .active-modal {
   transform: translateY(0);
   transition: all 0.5s ease-in;
+}
+
+/* REGISTER */
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.form-title {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-family: exo;
+  color: orangered;
+}
+
+.form-input {
+  padding: 15px 35px 15px 15px;
+  border-radius: 8px;
+  background-color: black;
+  color: #fff;
+  outline: none;
+  border: none;
+  width: 350px;
+  margin: 5px 0px;
+  border: #C8412C 2px solid;
+}
+
+.form-submit-btn {
+  font-size: 0.9rem;
+  background: #12c2e9; 
+  background: -webkit-linear-gradient(135deg, orangered 0%, red 100%);
+  background: linear-gradient(135deg, orangered 0%, red 100%);
+  color: black;
+  font-weight: 1000;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 350px;
+  margin-top: 20px;
+}
+
+.form-field.error input {
+  border: 1px solid #dc3545;
+}
+
+.form-field small {
+  color: red;
+  max-width: 350px;
+  text-align: center;
+  display: none;
+}
+
+.form-field.success input {
+  border: 1px solid #28a745;
+}
+
+#form-error {
+  color: red;
+  font-size: 1rem;
+  margin: 8px 0px;
+  max-width: 350px;
+  text-align: center;
+}
+
+.form-redirect {
+  color: orangered;
+  font-size: 18px;
+  margin: 15px 0 50px 0;
+
+}
+
+.link-login{
+  color: green;
+}
+
+.name{
+  color: red;
+  font-size: 1rem;
+  text-align: center;
 }
 

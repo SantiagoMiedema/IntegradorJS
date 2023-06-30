@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DracoTech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <link rel="stylesheet" href="animaciones.css">
+    <link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+			integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+</head>
+<body>
+    <header id="header">
+        <img src="./img/logotext.png" alt="logo de DracoTech" class="navbar-logo">
+        <nav class="navbar">
+            
+            <input type="checkbox"  id="menu">
+            <ul class="navbar-list">
+                <li><a class="navbar-link" href="index.html" >Inicio</a></li>
+                <li><a class="navbar-link" href="login.html" class="login">Inicia Sesión</a></li>
+            </ul>
+
+            <div class="cart-label">
+                <i class="fa-solid fa-cart-shopping" style="color: #ff0202;" cart-icon>
+                    <div class="cart-bubble">0</div>
+                </i>
+            </div>
+
+            <div class="cart">
+                <h2>Tus compras</h2>
+                <div class="cart-container">
+                    <!-- <div class="cart-item">
+                        <img src="./products/auriculareshx.webp" alt="cart-product">
+                        <div class="item-info">
+                            <h3 class="item-title">NOMBRE</h3>
+                            <span class="item-price">$</span>
+                        </div>
+                        <div class="item-handler">
+                             <span class="quantity-handler down" data-id="ID">-</span>
+                            <span class="item-quantity">Cantidad</span>
+                            <span class="quantity-handler up" data-id="ID">+</span>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="divider"></div>
+                <div class="cart-total">
+                    <p>Total:</p>
+                    <span class="total">$0</span>
+                </div>
+                <button class="btn-buy">Comprar</button>
+                <button class="btn-delete">Vaciar carrito</button>
+            </div>
+        
+            <label for="menu" class="menu-label">
+                <img src="./img/menu.png" alt="" class="menu-icon">
+            </label>
+
+        <div class="overlay"></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-register">
+            <form class="form-container" id="register-form" novalidate>
+				<p class="form-title">Crea tu cuenta</p>
+				
+				<div class="form-field">
+					<input
+						type="text"
+						placeholder="Nombre"
+						class="form-input"
+						id="name"
+						autocomplete="off"
+					/>
+					<small></small>
+				</div>
+				
+				<div class="form-field">
+					<input
+						type="text"
+						placeholder="Apellido"
+						class="form-input"
+						id="lastName"
+						autocomplete="off"
+					/>
+					<small></small>
+                </div>
+				
+				<div class="form-field">
+					<input
+						type="email"
+						placeholder="Email"
+						class="form-input"
+						id="email"
+						autocomplete="off"
+						required
+					/>
+					<small></small>
+				</div>
+				
+
+				<div class="form-field">
+					<input
+						type="password"
+						placeholder="Password"
+						class="form-input"
+						id="password"
+						autocomplete="off"
+					/>
+					<small></small>
+				</div>
+
+                <input type="submit" class="form-submit-btn" value="Registrarse" />
+				<p class="form-redirect">
+					¿Ya tenés cuenta?
+					<a class="link-login" href="./login.html">Iniciá Sesión</a>
+				</p>
+			</form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-footer">
+            <div class="footer-p">
+                <p>Nuestras redes</p>
+            </div>
+            <div class="footer-redes">
+                <a href="https://www.instagram.com"><img src="./img/ig.png"></a>
+                <a href="https://www.facebook.com"><img src="./img/fb.png"></a>
+                <a href="https://www.youtube.com"><img src="./img/yt.png"></a>
+                <a href="https://www.twitter.com"><img src="./img/tw.png"></a>
+            </div>
+        </div>
+        <div class="logo-copy-footer">
+            <a href="#header"><img src="./img/logo.png" alt="logo"></a>
+            <p>Copyright © 2023 Dracotech. All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="./register.js"></script>
+</body>

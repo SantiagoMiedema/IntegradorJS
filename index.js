@@ -45,15 +45,24 @@ const renderProducts = (productsList) => {
     productsContainer.innerHTML = productsList.map(createProductTemplate).join("");
 };
 
+
+const isInactiveFilterBtn = (element) => {
+	return (
+		element.classList.contains("category") &&
+		!element.classList.contains("active")
+	);
+};
+
+
 const changeBtnActiveState = (selectedCategory) => {
-    const categories = [... categoriesList]
-    categories.forEach((categoryBtn) =>{
-        if(categoryBtn.dataset.category !== selectedCategory){
-            categoryBtn.classList.remove("active");
-            return;
-        }
-        categoryBtn.classList.add("active")
-    })
+	const categories = [...categoriesList];
+	categories.forEach((categoryBtn) => {
+		if (categoryBtn.dataset.category !== selectedCategory) {
+			categoryBtn.classList.remove("active");
+			return;
+		}
+		categoryBtn.classList.add("active");
+	});
 };
 
 const changeFilterState = (btn) => {
@@ -63,20 +72,14 @@ const changeFilterState = (btn) => {
 
 
 
-
-const isInactiveFilterBtn = (element) => {
-    return(
-        element.classList.contains("category") &&
-        !element.classList.contains("active")
-    )
-};
-
 const renderFilteredProducts = () => {
     const filteredProducts = productsData.filter((product) =>{
         return product.category === appState.activeFilter
     });
     renderProducts(filteredProducts);
 };
+
+
 
 const applyFilter = ({target}) => {
     if(!isInactiveFilterBtn(target)){
@@ -90,6 +93,7 @@ const applyFilter = ({target}) => {
     }
     
 };
+
 
 const toggleCart = () => {
      cartMenu.classList.toggle("open-cart");
@@ -311,6 +315,8 @@ const completeBuy = () => {
 const deleteCart = () => {
     completeCartAction("¿Desea vaciar el carrito?" , "No hay productos en el carrito")
 };
+
+
 
 const init = () => {
       renderProducts(productsData);

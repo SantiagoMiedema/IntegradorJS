@@ -9,7 +9,8 @@ const productsData = [
     {
         id: 2,
         name: "Teclado Logitech Prodigy",
-        category: "teclados",
+        category: "teclados" ,
+        category: "todos" ,
         cardImg: "./products/tecladologitech.webp",
         price: 23499,
     },
