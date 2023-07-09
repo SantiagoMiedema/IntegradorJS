@@ -68,8 +68,9 @@ const login = (e) => {
 		console.log(user);
 		saveToSessionStorage(user);
 		window.location.href = "./index.html";
+        alert("¡Has iniciado sesion!");
 	}
-    alert("¡Has iniciado sesion!");
+    
 };
 
 

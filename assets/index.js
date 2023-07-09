@@ -1,4 +1,5 @@
 const productsContainer = document.querySelector(".products-container");
+const showMoreBtn = document.querySelector(".show-more-btn")
 const categoriesContainer = document.querySelector(".categories");
 const categoriesList = document.querySelectorAll(".category");
 const cartBtn = document.querySelector(".cart-label");
@@ -29,7 +30,7 @@ const createProductTemplate = (product) => {
                 <img src=${cardImg} alt="${name}"/>
                 <div class="product-info">
                     <h3>${name}</h3>
-                    <span>Precio: $${price}</span>
+                    <span>$${price}</span>
                     <button class="btn-add"
                     data-id="${id}"
                     data-name="${name}"
@@ -42,8 +43,22 @@ const createProductTemplate = (product) => {
 };
 
 const renderProducts = (productsList) => {
-    productsContainer.innerHTML = productsList.map(createProductTemplate).join("");
+    productsContainer.innerHTML += productsList.map(createProductTemplate).join("");
 };
+
+const isLastIndexOf = () => {
+    return appState.currentProductsIndex === appState.productsLimit -1;
+};
+
+showMoreProducts = () => {
+    appState.currentProductsIndex += 1;
+    let {products, currentProductsIndex} = appState
+    renderProducts(products[currentProductsIndex]);
+    if (isLastIndexOf()) {
+        showMoreBtn.classList.add("hidden");
+    }
+};
+
 
 
 const isInactiveFilterBtn = (element) => {
@@ -65,9 +80,18 @@ const changeBtnActiveState = (selectedCategory) => {
 	});
 };
 
+const setShowMoreVisibility = () => {
+	if (!appState.activeFilter) {
+		showMoreBtn.classList.remove("hidden");
+		return;
+	}
+	showMoreBtn.classList.add("hidden");
+};
+
 const changeFilterState = (btn) => {
     appState.activeFilter = btn.dataset.category;
     changeBtnActiveState(appState.activeFilter);
+    setShowMoreVisibility();
 };
 
 
@@ -91,7 +115,7 @@ const applyFilter = ({target}) => {
         renderFilteredProducts();
         return;
     }
-    
+    renderProducts(appState.products[0]);
 };
 
 
@@ -319,7 +343,8 @@ const deleteCart = () => {
 
 
 const init = () => {
-      renderProducts(productsData);
+      renderProducts(appState.products[0]);
+      showMoreBtn.addEventListener("click",showMoreProducts)
       categoriesContainer.addEventListener("click" , applyFilter);
       cartBtn.addEventListener("click", toggleCart);
       menuBtn.addEventListener("click", toggleMenu);
@@ -335,6 +360,8 @@ const init = () => {
       disableBtn(buyBtn);
       disableBtn(deleteBtn);
       renderCartBubble();
+      renderCart();
+      showCartTotal();
 };
 
 

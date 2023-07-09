@@ -1,4 +1,4 @@
-const regiasterForm = document.getElementById("register-form");
+const registerForm = document.getElementById("register-form");
 const nameInput = document.getElementById("name");
 const lastNameInput = document.getElementById("lastName");
 const emailInput = document.getElementById("email");
@@ -170,7 +170,7 @@ const submitHandler = (e) => {
 
 
 const init = () => {
-    regiasterForm.addEventListener("submit" , submitHandler)
+    registerForm.addEventListener("submit" , submitHandler)
     nameInput.addEventListener("input" , () => checkTextInput(nameInput));
     lastNameInput.addEventListener("input" , () => checkTextInput(lastNameInput));
     emailInput.addEventListener("input" , () => checkEmail(emailInput));

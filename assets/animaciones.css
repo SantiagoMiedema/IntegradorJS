@@ -49,8 +49,8 @@ html {
 
 .btn-add:hover{
     background-color: black;
-    color: red;
-    border: 2px solid orangered;
+    color: orangered;
+    border: 2px solid red;
     transition: 0.5s;
     transform: scale(1.10);
 }
@@ -68,6 +68,13 @@ html {
     background: black;
     border: red 1px solid;
   }
+
+  .show-more-btn:hover{
+    color: orangered;
+    background: black;
+    border: red 2px solid;
+    transition: 0.5s;
+   }
 
 @media (min-width: 992px){
 
